@@ -1,0 +1,18 @@
+<div class="container m-auto">
+  <h1 class="text-center">My Tasks</h1>
+  <ul class="text-center list-unstyled">
+    <% @tasks.each do |task| %>
+      <li>
+        <% if task.completed == true%>
+          <i class="fa-regular fa-square-check"></i>
+        <% else %>
+          <i class="fa-regular fa-square"></i>
+        <% end %>
+        <%= link_to task.title, task_path(task) %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Add a new task", new_task_path(), :class => "btn btn-primary d-inline-block m-auto" %>
+  </div>
+</div>
